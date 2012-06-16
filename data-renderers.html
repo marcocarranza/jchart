@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+	
+	<title>AJAX and JSON Data Loading via Data Renderers</title>
+
+    <link class="include" rel="stylesheet" type="text/css" href="data-renderers_archivos/jquery.css">
+    <link rel="stylesheet" type="text/css" href="data-renderers_archivos/examples.css">
+    <link type="text/css" rel="stylesheet" href="data-renderers_archivos/shCoreDefault.css">
+    <link type="text/css" rel="stylesheet" href="data-renderers_archivos/shThemejqPlot.css">
+  
+  <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="../excanvas.js"></script><![endif]-->
+    <script class="include" type="text/javascript" src="data-renderers_archivos/jquery_002.js"></script>
+    
+   
+</head>
+<body>
+
+    <div class="example-content">
+
+        
+<!-- Example scripts go here -->
+
+
+
+<div class="jqplot-target" id="chart1" style="height: 300px; width: 500px; position: relative;"><canvas class="jqplot-base-canvas" style="position: absolute; left: 0px; top: 0px;" height="300" width="500"></canvas><div style="position: absolute; top: 0px; left: 0px; width: 500px; text-align: center;" class="jqplot-title">Sine Data Renderer</div><div style="position: absolute; width: 500px; height: 15px; left: 0px; bottom: 0px;" class="jqplot-axis jqplot-xaxis"><div style="position: absolute; left: 25px;" class="jqplot-xaxis-tick">-2</div><div style="position: absolute; left: 84.5px;" class="jqplot-xaxis-tick">0</div><div style="position: absolute; left: 142px;" class="jqplot-xaxis-tick">2</div><div style="position: absolute; left: 199.5px;" class="jqplot-xaxis-tick">4</div><div style="position: absolute; left: 257px;" class="jqplot-xaxis-tick">6</div><div style="position: absolute; left: 314.5px;" class="jqplot-xaxis-tick">8</div><div style="position: absolute; left: 369px;" class="jqplot-xaxis-tick">10</div><div style="position: absolute; left: 426.5px;" class="jqplot-xaxis-tick">12</div><div style="position: absolute; left: 484px;" class="jqplot-xaxis-tick">14</div></div><div style="position: absolute; height: 300px; width: 20px; left: 0px; top: 0px;" class="jqplot-axis jqplot-yaxis"><div style="position: absolute; top: 267.5px;" class="jqplot-yaxis-tick">-1.5</div><div style="position: absolute; top: 227.333px;" class="jqplot-yaxis-tick">-1.0</div><div style="position: absolute; top: 187.167px;" class="jqplot-yaxis-tick">-0.5</div><div style="position: absolute; top: 147px;" class="jqplot-yaxis-tick">0.0</div><div style="position: absolute; top: 106.833px;" class="jqplot-yaxis-tick">0.5</div><div style="position: absolute; top: 66.6667px;" class="jqplot-yaxis-tick">1.0</div><div style="position: absolute; top: 26.5px;" class="jqplot-yaxis-tick">1.5</div></div><canvas style="position: absolute; left: 0px; top: 0px;" class="jqplot-grid-canvas" height="300" width="500"></canvas><canvas class="jqplot-series-shadowCanvas" style="position: absolute; left: 30px; top: 34px;" height="241" width="460"></canvas><canvas class="jqplot-series-canvas" style="position: absolute; left: 30px; top: 34px;" height="241" width="460"></canvas><canvas class="jqplot-lineRenderer-highlight-canvas" style="position: absolute; left: 30px; top: 34px;" height="241" width="460"></canvas><canvas class="jqplot-event-canvas" style="position: absolute; left: 30px; top: 34px;" height="241" width="460"></canvas></div><button class="jqplot-image-button">View Plot Image</button><br><div style="display: none;" class="jqplot-image-container"><div class="jqplot-image-container-header">Right Click to Save Image As...<a href="#" class="jqplot-image-container-close">Close</a></div><div class="jqplot-image-container-content"></div></div>
+
+
+<div class="jqplot-target" id="chart2" style="height: 300px; width: 500px; position: relative;"><canvas class="jqplot-base-canvas" style="position: absolute; left: 0px; top: 0px;" height="300" width="500"></canvas><div style="position: absolute; top: 0px; left: 0px; width: 500px; text-align: center;" class="jqplot-title">AJAX JSON Data Renderer</div><div style="position: absolute; width: 500px; height: 15px; left: 0px; bottom: 0px;" class="jqplot-axis jqplot-xaxis"><div style="position: absolute; left: 14px;" class="jqplot-xaxis-tick">0.0</div><div style="position: absolute; left: 50px;" class="jqplot-xaxis-tick">0.5</div><div style="position: absolute; left: 86px;" class="jqplot-xaxis-tick">1.0</div><div style="position: absolute; left: 122px;" class="jqplot-xaxis-tick">1.5</div><div style="position: absolute; left: 158px;" class="jqplot-xaxis-tick">2.0</div><div style="position: absolute; left: 194px;" class="jqplot-xaxis-tick">2.5</div><div style="position: absolute; left: 230px;" class="jqplot-xaxis-tick">3.0</div><div style="position: absolute; left: 266px;" class="jqplot-xaxis-tick">3.5</div><div style="position: absolute; left: 302px;" class="jqplot-xaxis-tick">4.0</div><div style="position: absolute; left: 338px;" class="jqplot-xaxis-tick">4.5</div><div style="position: absolute; left: 374px;" class="jqplot-xaxis-tick">5.0</div><div style="position: absolute; left: 410px;" class="jqplot-xaxis-tick">5.5</div><div style="position: absolute; left: 446px;" class="jqplot-xaxis-tick">6.0</div><div style="position: absolute; left: 482px;" class="jqplot-xaxis-tick">6.5</div></div><div style="position: absolute; height: 300px; width: 12px; left: 0px; top: 0px;" class="jqplot-axis jqplot-yaxis"><div style="position: absolute; top: 267.5px;" class="jqplot-yaxis-tick">0</div><div style="position: absolute; top: 219.3px;" class="jqplot-yaxis-tick">2</div><div style="position: absolute; top: 171.1px;" class="jqplot-yaxis-tick">4</div><div style="position: absolute; top: 122.9px;" class="jqplot-yaxis-tick">6</div><div style="position: absolute; top: 74.7px;" class="jqplot-yaxis-tick">8</div><div style="position: absolute; top: 26.5px;" class="jqplot-yaxis-tick">10</div></div><canvas style="position: absolute; left: 0px; top: 0px;" class="jqplot-grid-canvas" height="300" width="500"></canvas><canvas class="jqplot-series-shadowCanvas" style="position: absolute; left: 22px; top: 34px;" height="241" width="468"></canvas><canvas class="jqplot-series-canvas" style="position: absolute; left: 22px; top: 34px;" height="241" width="468"></canvas><canvas class="jqplot-lineRenderer-highlight-canvas" style="position: absolute; left: 22px; top: 34px;" height="241" width="468"></canvas><canvas class="jqplot-event-canvas" style="position: absolute; left: 22px; top: 34px;" height="241" width="468"></canvas></div><button class="jqplot-image-button">View Plot Image</button><br><div style="display: none;" class="jqplot-image-container"><div class="jqplot-image-container-header">Right Click to Save Image As...<a href="#" class="jqplot-image-container-close">Close</a></div><div class="jqplot-image-container-content"></div></div>
+
+
+<script class="code" type="text/javascript">
+$(document).ready(function(){
+  // Our data renderer function, returns an array of the form:
+  // [[[x1, sin(x1)], [x2, sin(x2)], ...]]
+  var sineRenderer = function() {
+    var data = [[]];
+    for (var i=0; i<13; i+=0.5) {
+      data[0].push([i, Math.sin(i)]);
+    }
+    return data;
+  };
+
+  // we have an empty data array here, but use the "dataRenderer"
+  // option to tell the plot to get data from our renderer.
+  var plot1 = $.jqplot('chart1',[],{
+      title: 'Sine Data Renderer',
+      dataRenderer: sineRenderer
+  });
+});
+</script>
+
+  
+<script class="code" type="text/javascript">
+$(document).ready(function(){
+  // Our ajax data renderer which here retrieves a text file.
+  // it could contact any source and pull data, however.
+  // The options argument isn't used in this renderer.
+  var ajaxDataRenderer = function(url, plot, options) {
+    var ret = null;
+    $.ajax({
+      // have to use synchronous here, else the function 
+      // will return before the data is fetched
+      async: false,
+      url: url,
+      dataType:"json",
+      success: function(data) {
+        ret = data;
+      }
+    });
+    return ret;
+  };
+
+  // The url for our json data
+  var jsonurl = "./jsondata.txt";
+
+  // passing in the url string as the jqPlot data argument is a handy
+  // shortcut for our renderer.  You could also have used the
+  // "dataRendererOptions" option to pass in the url.
+  var plot2 = $.jqplot('chart2', jsonurl,{
+    title: "AJAX JSON Data Renderer",
+    dataRenderer: ajaxDataRenderer,
+    dataRendererOptions: {
+      unusedOptionalUrl: jsonurl
+    }
+  });
+});
+</script>
+
+
+<!-- End example scripts -->
+
+<!-- Don't touch this! -->
+
+
+    <script class="include" type="text/javascript" src="data-renderers_archivos/jquery.js"></script>
+    <script type="text/javascript" src="data-renderers_archivos/shCore.js"></script>
+    <script type="text/javascript" src="data-renderers_archivos/shBrushJScript.js"></script>
+    <script type="text/javascript" src="data-renderers_archivos/shBrushXml.js"></script>
+<!-- End Don't touch this! -->
+
+<!-- Additional plugins go here -->
+
+    <script class="include" language="javascript" type="text/javascript" src="data-renderers_archivos/jqplot.js"></script>
+
+<!-- End additional plugins -->
+
+
+</body></html>
